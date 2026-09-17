@@ -25,6 +25,9 @@ return {
           'vimdoc',
           'python',
           'javascript',
+          'json',
+          'toml',
+          'regex',
         },
         auto_install = true,
         highlight = {
@@ -34,5 +37,14 @@ return {
         indent = { enable = true, disable = { 'ruby' } },
       }
     end,
+  },
+
+  { -- Show code context (sticky function/class headers)
+    'nvim-treesitter/nvim-treesitter-context',
+    event = { 'BufReadPost', 'BufNewFile' },
+    opts = {
+      max_lines = 3,
+      trim_scope = 'outer',
+    },
   },
 }

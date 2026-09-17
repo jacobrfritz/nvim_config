@@ -5,6 +5,7 @@ return {
     config = function()
       ---@diagnostic disable-next-line: missing-fields
       require('tokyonight').setup {
+        transparent = true,
         styles = {
           comments = { italic = false }, -- Disable italics in comments
         },
@@ -12,12 +13,6 @@ return {
 
       -- Load the colorscheme here.
       vim.cmd.colorscheme 'tokyonight-moon'
-
-      -- Apply transparency tweaks after the colorscheme loads
-      local groups = { 'Normal', 'NormalFloat', 'NormalNC', 'SignColumn', 'FoldColumn', 'MsgArea' }
-      for _, group in ipairs(groups) do
-        vim.api.nvim_set_hl(0, group, { bg = 'none' })
-      end
     end,
   },
 

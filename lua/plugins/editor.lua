@@ -135,6 +135,17 @@ return {
     'tpope/vim-fugitive',
   },
 
+  { -- Git diff and history viewer
+    'sindrets/diffview.nvim',
+    cmd = { 'DiffviewOpen', 'DiffviewClose', 'DiffviewToggleFiles', 'DiffviewFocusFiles', 'DiffviewFileHistory' },
+    keys = {
+      { '<leader>gd', '<cmd>DiffviewOpen<CR>', desc = 'Git [D]iffview open' },
+      { '<leader>gh', '<cmd>DiffviewFileHistory %<CR>', desc = 'Git [H]istory (current file)' },
+      { '<leader>gH', '<cmd>DiffviewFileHistory<CR>', desc = 'Git [H]istory (branch)' },
+    },
+    opts = {},
+  },
+
   { -- Terminal management
     'akinsho/toggleterm.nvim',
     version = '*',
@@ -155,7 +166,7 @@ return {
     },
     cmd = 'Neotree',
     keys = {
-      { '\\', ':Neotree reveal<CR>', { desc = 'NeoTree reveal' } },
+      { '\\', ':Neotree toggle<CR>', { desc = 'NeoTree toggle' } },
     },
     opts = {
       filesystem = {

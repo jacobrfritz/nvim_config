@@ -18,7 +18,17 @@ M.setup = function()
   end
 
   if M.is_mac then
-    vim.env.PATH = '/opt/homebrew/bin:' .. vim.env.PATH
+    local extra_paths = {
+      '/opt/homebrew/bin',
+      '/opt/homebrew/sbin',
+      '/usr/local/bin',
+      '/usr/local/sbin',
+    }
+    for _, p in ipairs(extra_paths) do
+      if vim.fn.isdirectory(p) == 1 and not string.find(vim.env.PATH, p, 1, true) then
+        vim.env.PATH = p .. ':' .. vim.env.PATH
+      end
+    end
   end
 end
 
