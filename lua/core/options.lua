@@ -36,6 +36,9 @@ vim.o.mouse = 'a'
 -- Don't show the mode, since it's already in the status line
 vim.o.showmode = false
 
+-- Hide bottom status bar completely since we moved it to the winbar (top)
+vim.o.laststatus = 0
+
 -- Sync clipboard between OS and Neovim.
 --  See `:help 'clipboard'`
 vim.schedule(function()
